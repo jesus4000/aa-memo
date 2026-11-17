@@ -1,0 +1,6 @@
+{
+  "name": "aa-memo",
+  "description": "aa (Add Anything): an instant global memo pad for Claude Code",
+  "owner": { "name": "jesus4000" },
+  "plugins": [{ "name": "aa", "source": "./" }]
+}
