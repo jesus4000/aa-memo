@@ -132,7 +132,7 @@ Already installed? An update never touches your memos in `~/.aa/memos.jsonl`.
 | Codex CLI plugin | `codex plugin marketplace upgrade aa-memo`, then `codex plugin add aa@aa-memo` again |
 | Terminal command | `npm i -g github:jesus4000/aa-memo` again |
 
-Kiro CLI is no longer supported: it can only print the list as text, not the keyboard list. If you copied the skill there, remove it with `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skillsa`).
+Kiro CLI is no longer supported: it can only print the list as text, not the keyboard list. If you copied the skill there, remove it with `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`).
 
 Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" instead of loading memo 3. Pick a memo from the `/aa ld` list instead; your saved memos are read as before.
 

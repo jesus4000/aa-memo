@@ -132,7 +132,7 @@ npm i -g github:jesus4000/aa-memo
 | Codex CLI 플러그인 | `codex plugin marketplace upgrade aa-memo` 실행 후 `codex plugin add aa@aa-memo` 다시 실행 |
 | 터미널 명령 | `npm i -g github:jesus4000/aa-memo` 다시 실행 |
 
-Kiro CLI는 더 이상 지원하지 않습니다. 키보드 목록 없이 글자 목록만 출력할 수 있기 때문입니다. Kiro에 skill을 복사해 두었다면 `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skillsa`)로 지우세요.
+Kiro CLI는 더 이상 지원하지 않습니다. 키보드 목록 없이 글자 목록만 출력할 수 있기 때문입니다. Kiro에 skill을 복사해 두었다면 `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`)로 지우세요.
 
 0.1에서 올라오는 경우: `/aa load`는 `/aa ld`로 바뀌었고, `/aa 3`은 3번 메모를 불러오지 않고 "3"이라는 메모를 저장합니다. 메모는 `/aa ld` 목록에서 고르세요. 저장해 둔 메모는 그대로 읽힙니다.
 
