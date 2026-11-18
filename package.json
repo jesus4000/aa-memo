@@ -1,7 +1,7 @@
 {
   "name": "aa-memo",
   "version": "0.2.0",
-  "description": "aa (Add Anything): an instant global memo pad for Claude Code, Codex CLI, Kiro CLI and any terminal",
+  "description": "aa (Add Anything): an instant global memo pad for Claude Code, Codex CLI and any terminal",
   "license": "MIT",
   "author": "jesus4000",
   "repository": "github:jesus4000/aa-memo",

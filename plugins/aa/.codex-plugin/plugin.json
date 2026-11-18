@@ -1,7 +1,7 @@
 {
   "name": "aa",
   "version": "0.2.0",
-  "description": "Add Anything - an instant global memo pad: $aa <memo>, $aa ld [keyword], $aa rm <id>. Shares ~/.aa/memos.jsonl with Claude Code and Kiro CLI.",
+  "description": "Add Anything - an instant global memo pad: $aa <memo>, $aa ld [keyword], $aa rm <id>. Shares ~/.aa/memos.jsonl with Claude Code and the aa terminal command.",
   "author": {
     "name": "jesus4000",
     "url": "https://github.com/jesus4000"

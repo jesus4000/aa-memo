@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// aa (Add Anything) as a plain command: the memo pad for Codex CLI, Kiro CLI and
-// any shell. It reads and writes the same file as the Claude Code mod, one JSON
+// aa (Add Anything) as a plain command: the memo pad for Codex CLI and any shell.
+// It reads and writes the same file as the Claude Code mod, one JSON
 // memo per line in ~/.aa/memos.jsonl, so every tool shares one list.
 //
 //   aa <memo>          save

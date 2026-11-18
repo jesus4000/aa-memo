@@ -4,7 +4,7 @@
 
 A memo pad inside your AI coding CLI. Type `/aa` and a note is saved at once, from any session, without opening another app. Later, pick it from a list and it lands on your clipboard, ready to paste wherever you want it.
 
-Works in **Claude Code**, **Codex CLI**, **Kiro CLI** and as a plain **terminal command**. They all share one memo file, so a memo saved in one shows up in the others.
+Works in **Claude Code**, **Codex CLI** and as a plain **terminal command**. They all share one memo file, so a memo saved in one shows up in the others.
 
 ## Usage
 
@@ -47,14 +47,14 @@ Where no list can be shown (a script, an agent), `/aa rm <id>` deletes the memo 
 
 ### The same three in every CLI
 
-| | Claude Code | Codex CLI | Kiro CLI | Terminal |
-| --- | --- | --- | --- | --- |
-| Save | `/aa <memo>` | `$aa <memo>` | `/aa <memo>` | `aa <memo>` |
-| Load | `/aa ld [keyword]` | `$aa ld [keyword]` | `/aa ld [keyword]` | `aa ld [keyword]` |
-| Delete | `d` in the list | `$aa rm <id>` | `/aa rm <id>` | `Del` (or `d`) in the list |
-| Who runs it | Claude Code itself; no model call | the model, as a skill | the model, as a skill | your shell; no model |
+| | Claude Code | Codex CLI | Terminal |
+| --- | --- | --- | --- |
+| Save | `/aa <memo>` | `$aa <memo>` | `aa <memo>` |
+| Load | `/aa ld [keyword]` | `$aa ld [keyword]` | `aa ld [keyword]` |
+| Delete | `d` in the list | `$aa rm <id>` | `Del` (or `d`) in the list |
+| Who runs it | Claude Code itself; no model call | the model, as a skill | your shell; no model |
 
-In Claude Code and in the terminal the list is yours to drive with the keyboard. In Codex and Kiro the model runs the command for you and prints the result, so `ld` prints the list as text (a keyword that matches exactly one memo prints it whole and, where the sandbox allows it, copies it), and deleting is by number.
+In Claude Code and in the terminal the list is yours to drive with the keyboard. In Codex the model runs the command for you and prints the result, so `ld` prints the list as text (a keyword that matches exactly one memo prints it whole and, where the sandbox allows it, copies it), and deleting is by number.
 
 The terminal command, here in a plain shell:
 
@@ -109,20 +109,6 @@ writable_roots = ["/home/you/.aa"]    # Windows: "C:\\Users\\you\\.aa"
 
 Without this, saving ends with `aa: cannot write ... in a sandboxed agent, allow writes to ...`.
 
-### Kiro CLI
-
-Kiro reads skills from `~/.kiro/skills`. Copy the skill folder there:
-
-```
-git clone https://github.com/jesus4000/aa-memo
-mkdir -p ~/.kiro/skills
-cp -r aa-memo/plugins/aa/skills/aa ~/.kiro/skills/aa
-```
-
-On Windows PowerShell: `Copy-Item -Recurse aa-memo\plugins\aa\skills\aa $HOME\.kiro\skills\aa`.
-
-Then type `/aa <memo>` in Kiro.
-
 ### Terminal command
 
 Needs Node.js 18 or later; nothing else is installed.
@@ -131,7 +117,7 @@ Needs Node.js 18 or later; nothing else is installed.
 npm i -g github:jesus4000/aa-memo
 ```
 
-This adds the command `aa` (and `aa-memo`, the same thing, in case `aa` is already taken on your machine). It is also the way to get the keyboard list while working in Codex or Kiro: run `aa ld` in a terminal next to it.
+This adds the command `aa` (and `aa-memo`, the same thing, in case `aa` is already taken on your machine). It is also the way to get the keyboard list while working in Codex: run `aa ld` in a terminal next to it.
 
 Copying uses the system clipboard: PowerShell on Windows and WSL, `pbcopy` on macOS, `wl-copy`, `xclip` or `xsel` on Linux. When none of them is there, the memo is sent to the terminal's own clipboard sequence (OSC 52); a terminal never says whether it took it, so the line then reads `Copy sent to the terminal`.
 
@@ -144,18 +130,9 @@ Already installed? An update never touches your memos in `~/.aa/memos.jsonl`.
 | Claude Code plugin | `claude plugin marketplace update aa-memo`, then `claude plugin update aa@aa-memo`, then restart Claude Code |
 | Claude Code, from a local copy | `git pull` in that folder, then `/reload-plugins` |
 | Codex CLI plugin | `codex plugin marketplace upgrade aa-memo`, then `codex plugin add aa@aa-memo` again |
-| Kiro CLI skill | `git pull` in your copy, then replace the skill folder (below) |
 | Terminal command | `npm i -g github:jesus4000/aa-memo` again |
 
-Replacing the Kiro skill folder:
-
-```
-git -C aa-memo pull
-rm -rf ~/.kiro/skills/aa
-cp -r aa-memo/plugins/aa/skills/aa ~/.kiro/skills/aa
-```
-
-On Windows PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`, then the `Copy-Item` line from the install step.
+Kiro CLI is no longer supported: it can only print the list as text, not the keyboard list. If you copied the skill there, remove it with `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skillsa`).
 
 Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" instead of loading memo 3. Pick a memo from the `/aa ld` list instead; your saved memos are read as before.
 
@@ -166,7 +143,6 @@ Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" inst
 | Claude Code | Yes: the mod's tests, and by hand in a real session on Windows (save, list, copy, delete, cancel). |
 | Terminal command | Yes: its tests, and by hand in a real console on Windows. macOS and Linux clipboard paths are written but not run by the author. |
 | Codex CLI | Partly: installing the plugin and saving through `codex exec` on Windows, with the sandbox setting above. The interactive screen has not been tried. |
-| Kiro CLI | No. The skill follows the Agent Skills format Kiro reads, but the author has not run it there. Reports are welcome. |
 
 ## Where memos live
 
@@ -175,7 +151,7 @@ One JSON object per line in `~/.aa/memos.jsonl` (`%USERPROFILE%\.aa\memos.jsonl`
 Memos are stored unencrypted. Do not use aa for passwords or keys.
 
 - **Claude Code**: saving and loading never call the model. The `/aa ...` line you typed stays in the conversation like any other command, so the model can read it on your next message in that session, and it can remain in Claude Code's local history.
-- **Codex and Kiro**: the model runs the command, so it reads the memo you save and the list it prints, and each use costs a turn.
+- **Codex**: the model runs the command, so it reads the memo you save and the list it prints, and each use costs a turn.
 - **Terminal command**: no model is involved at all.
 
 ## Limits
