@@ -1,0 +1,24 @@
+{
+  "name": "aa",
+  "version": "0.2.0",
+  "description": "Add Anything - an instant global memo pad: $aa <memo>, $aa ld [keyword], $aa rm <id>. Shares ~/.aa/memos.jsonl with Claude Code and Kiro CLI.",
+  "author": {
+    "name": "jesus4000",
+    "url": "https://github.com/jesus4000"
+  },
+  "homepage": "https://github.com/jesus4000/aa-memo",
+  "repository": "https://github.com/jesus4000/aa-memo",
+  "license": "MIT",
+  "keywords": ["memo", "notes", "clipboard"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "aa (Add Anything)",
+    "shortDescription": "Instant global memo pad",
+    "longDescription": "Save a memo with $aa <text>, find and copy one with $aa ld [keyword], delete one with $aa rm <id>. Memos live in ~/.aa/memos.jsonl and are shared with the aa mod for Claude Code and the aa command.",
+    "developerName": "jesus4000",
+    "category": "Productivity",
+    "capabilities": ["Write"],
+    "websiteURL": "https://github.com/jesus4000/aa-memo",
+    "defaultPrompt": ["$aa ld"]
+  }
+}

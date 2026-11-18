@@ -1,0 +1,22 @@
+{
+  "name": "aa-memo",
+  "version": "0.2.0",
+  "description": "aa (Add Anything): an instant global memo pad for Claude Code, Codex CLI, Kiro CLI and any terminal",
+  "license": "MIT",
+  "author": "jesus4000",
+  "repository": "github:jesus4000/aa-memo",
+  "type": "module",
+  "bin": {
+    "aa": "plugins/aa/skills/aa/scripts/aa.mjs",
+    "aa-memo": "plugins/aa/skills/aa/scripts/aa.mjs"
+  },
+  "files": [
+    "plugins/aa/skills"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/cli.mjs"
+  }
+}

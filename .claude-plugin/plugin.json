@@ -1,7 +1,7 @@
 {
   "name": "aa",
-  "version": "0.1.0",
-  "description": "Add Anything - instant global memo for Claude Code: /aa <text>, /aa load [keyword]. No model call for saving or loading.",
+  "version": "0.2.0",
+  "description": "Add Anything - instant global memo for Claude Code: /aa <memo> saves, /aa ld [keyword] lists and copies. No model call for saving or loading.",
   "author": { "name": "jesus4000" },
   "license": "MIT",
   "types": "./types/index.d.ts"

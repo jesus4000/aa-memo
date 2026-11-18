@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="66" viewBox="0 0 540 66" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Malgun Gothic',monospace" font-size="14" xml:space="preserve">
+<rect x="0.5" y="0.5" width="539.4" height="65.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+<text x="14.0" y="27.7" fill="#c9d1d9" textLength="361.2" lengthAdjust="spacingAndGlyphs">$ aa deploy checklist: run tests, tag, push</text>
+<text x="14.0" y="46.7" fill="#c9d1d9" textLength="403.2" lengthAdjust="spacingAndGlyphs">saved #6  deploy checklist: run tests, tag, push</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="734" height="275" viewBox="0 0 734 275" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Malgun Gothic',monospace" font-size="14" xml:space="preserve">
+<rect x="0.5" y="0.5" width="732.6" height="198.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+<text x="14.0" y="27.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">↑</text>
+<text x="22.4" y="27.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">↓</text>
+<text x="39.2" y="27.7" fill="#8b949e" textLength="33.6" lengthAdjust="spacingAndGlyphs">move</text>
+<text x="81.2" y="27.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="98.0" y="27.7" fill="#8b949e" textLength="92.4" lengthAdjust="spacingAndGlyphs">Enter: copy</text>
+<text x="198.8" y="27.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="215.6" y="27.7" fill="#8b949e" textLength="92.4" lengthAdjust="spacingAndGlyphs">Del: delete</text>
+<text x="316.4" y="27.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="333.2" y="27.7" fill="#8b949e" textLength="84.0" lengthAdjust="spacingAndGlyphs">Esc: close</text>
+<rect x="14.0" y="33.0" width="478.8" height="19" fill="#c9d1d9"/>
+<text x="14.0" y="46.7" fill="#0d1117" textLength="8.4" lengthAdjust="spacingAndGlyphs">›</text>
+<text x="30.8" y="46.7" fill="#0d1117" textLength="462.0" lengthAdjust="spacingAndGlyphs">2026-11-18 09:33 deploy checklist: run tests, tag, push</text>
+<text x="30.8" y="65.7" fill="#c9d1d9" textLength="663.6" lengthAdjust="spacingAndGlyphs">2026-11-18 09:24 release checklist 1. bump version 2. run tests 3. tag and push</text>
+<text x="30.8" y="84.7" fill="#c9d1d9" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:23</text>
+<text x="173.6" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">내</text>
+<text x="190.4" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="215.6" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">할</text>
+<text x="240.8" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="257.6" y="84.7" fill="#c9d1d9" textLength="8.4" lengthAdjust="spacingAndGlyphs">:</text>
+<text x="274.4" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">배</text>
+<text x="291.2" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">포</text>
+<text x="316.4" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">스</text>
+<text x="333.2" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">크</text>
+<text x="350.0" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">립</text>
+<text x="366.8" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">트</text>
+<text x="392.0" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">점</text>
+<text x="408.8" y="84.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">검</text>
+<text x="30.8" y="103.7" fill="#c9d1d9" textLength="571.2" lengthAdjust="spacingAndGlyphs">2026-11-18 09:22 git rebase -i HEAD~3 &amp;&amp; git push --force-with-lease</text>
+<text x="30.8" y="122.7" fill="#c9d1d9" textLength="210.0" lengthAdjust="spacingAndGlyphs">2026-11-18 09:21 buy milk</text>
+<text x="14.0" y="141.7" fill="#8b949e" textLength="336.0" lengthAdjust="spacingAndGlyphs">────────────────────────────────────────</text>
+<text x="14.0" y="160.7" fill="#c9d1d9" textLength="159.6" lengthAdjust="spacingAndGlyphs">#6 2026-11-18 09:33</text>
+<text x="14.0" y="179.7" fill="#c9d1d9" textLength="319.2" lengthAdjust="spacingAndGlyphs">deploy checklist: run tests, tag, push</text>
+<rect x="0.5" y="209.5" width="732.6" height="65.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+<text x="14.0" y="236.7" fill="#c9d1d9" textLength="58.8" lengthAdjust="spacingAndGlyphs">$ aa ld</text>
+<text x="14.0" y="255.7" fill="#c9d1d9" textLength="151.2" lengthAdjust="spacingAndGlyphs">Content Copied  #6</text>
+</svg>

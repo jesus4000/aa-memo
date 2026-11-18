@@ -1,0 +1,20 @@
+{
+  "name": "aa-memo",
+  "interface": {
+    "displayName": "aa memo"
+  },
+  "plugins": [
+    {
+      "name": "aa",
+      "source": {
+        "source": "local",
+        "path": "./plugins/aa"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

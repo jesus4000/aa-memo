@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="566" height="332" viewBox="0 0 566 332" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono','Malgun Gothic',monospace" font-size="14" xml:space="preserve">
+<rect x="0.5" y="0.5" width="438.6" height="103.0" rx="8" fill="#262626" stroke="#30363d"/>
+<text x="408.8" y="27.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">✕</text>
+<text x="14.0" y="46.7" fill="#c9d1d9" textLength="84.0" lengthAdjust="spacingAndGlyphs">Delete #4?</text>
+<text x="14.0" y="65.7" fill="#999999" textLength="386.4" lengthAdjust="spacingAndGlyphs">release checklist 1. bump version 2. run tests</text>
+<text x="400.4" y="65.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">…</text>
+<rect x="14.0" y="71.0" width="8.4" height="19" fill="#b1b9f9"/>
+<rect x="22.4" y="71.0" width="33.6" height="19" fill="#c9d1d9"/>
+<text x="14.0" y="84.7" fill="#262626" textLength="8.4" lengthAdjust="spacingAndGlyphs">n</text>
+<text x="22.4" y="84.7" fill="#262626" textLength="33.6" lengthAdjust="spacingAndGlyphs">: No</text>
+<text x="81.2" y="84.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">y</text>
+<text x="89.6" y="84.7" fill="#c9d1d9" textLength="42.0" lengthAdjust="spacingAndGlyphs">: Yes</text>
+<rect x="0.5" y="114.5" width="564.6" height="217.0" rx="8" fill="#262626" stroke="#30363d"/>
+<text x="14.0" y="141.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">╭</text>
+<text x="22.4" y="141.7" fill="#8b949e" textLength="100.8" lengthAdjust="spacingAndGlyphs">────────────</text>
+<text x="123.2" y="141.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">╮</text>
+<text x="131.6" y="141.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="534.8" y="141.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">✕</text>
+<text x="14.0" y="160.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="30.8" y="160.7" fill="#999999" textLength="16.8" lengthAdjust="spacingAndGlyphs">aa</text>
+<text x="123.2" y="160.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="131.6" y="160.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="140.0" y="160.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">↑</text>
+<text x="148.4" y="160.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">↓</text>
+<text x="165.2" y="160.7" fill="#999999" textLength="33.6" lengthAdjust="spacingAndGlyphs">move</text>
+<text x="207.2" y="160.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="224.0" y="160.7" fill="#999999" textLength="92.4" lengthAdjust="spacingAndGlyphs">Enter: copy</text>
+<text x="324.8" y="160.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="341.6" y="160.7" fill="#999999" textLength="84.0" lengthAdjust="spacingAndGlyphs">Esc: close</text>
+<text x="434.0" y="160.7" fill="#999999" textLength="8.4" lengthAdjust="spacingAndGlyphs">·</text>
+<text x="450.8" y="160.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">d</text>
+<text x="459.2" y="160.7" fill="#999999" textLength="67.2" lengthAdjust="spacingAndGlyphs">: delete</text>
+<text x="14.0" y="179.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="30.8" y="179.7" fill="#c9d1d9" textLength="84.0" lengthAdjust="spacingAndGlyphs">Deleted #4</text>
+<text x="123.2" y="179.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="131.6" y="179.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="156.8" y="179.7" fill="#999999" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:29</text>
+<text x="299.6" y="179.7" fill="#c9d1d9" textLength="218.4" lengthAdjust="spacingAndGlyphs">deploy checklist: run test</text>
+<text x="518.0" y="179.7" fill="#c9d1d9" textLength="8.4" lengthAdjust="spacingAndGlyphs">…</text>
+<text x="14.0" y="198.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">╰</text>
+<text x="22.4" y="198.7" fill="#8b949e" textLength="100.8" lengthAdjust="spacingAndGlyphs">────────────</text>
+<text x="123.2" y="198.7" fill="#8b949e" textLength="8.4" lengthAdjust="spacingAndGlyphs">╯</text>
+<text x="131.6" y="198.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="156.8" y="198.7" fill="#999999" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:25</text>
+<text x="299.6" y="198.7" fill="#c9d1d9" textLength="159.6" lengthAdjust="spacingAndGlyphs">temp note to delete</text>
+<rect x="140.0" y="204.0" width="16.8" height="19" fill="#c9d1d9"/>
+<rect x="156.8" y="204.0" width="142.8" height="19" fill="#999999"/>
+<rect x="299.6" y="204.0" width="252.0" height="19" fill="#c9d1d9"/>
+<text x="131.6" y="217.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="140.0" y="217.7" fill="#262626" textLength="8.4" lengthAdjust="spacingAndGlyphs">›</text>
+<text x="156.8" y="217.7" fill="#262626" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:23</text>
+<text x="299.6" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">내</text>
+<text x="316.4" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="341.6" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">할</text>
+<text x="366.8" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="383.6" y="217.7" fill="#262626" textLength="8.4" lengthAdjust="spacingAndGlyphs">:</text>
+<text x="400.4" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">배</text>
+<text x="417.2" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">포</text>
+<text x="442.4" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">스</text>
+<text x="459.2" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">크</text>
+<text x="476.0" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">립</text>
+<text x="492.8" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">트</text>
+<text x="518.0" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">점</text>
+<text x="534.8" y="217.7" fill="#262626" textLength="16.8" lengthAdjust="spacingAndGlyphs">검</text>
+<text x="131.6" y="236.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="156.8" y="236.7" fill="#999999" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:22</text>
+<text x="299.6" y="236.7" fill="#c9d1d9" textLength="218.4" lengthAdjust="spacingAndGlyphs">git rebase -i HEAD~3 &amp;&amp; gi</text>
+<text x="518.0" y="236.7" fill="#c9d1d9" textLength="8.4" lengthAdjust="spacingAndGlyphs">…</text>
+<text x="131.6" y="255.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="156.8" y="255.7" fill="#999999" textLength="134.4" lengthAdjust="spacingAndGlyphs">2026-11-18 09:21</text>
+<text x="299.6" y="255.7" fill="#c9d1d9" textLength="67.2" lengthAdjust="spacingAndGlyphs">buy milk</text>
+<text x="131.6" y="274.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="140.0" y="274.7" fill="#999999" textLength="336.0" lengthAdjust="spacingAndGlyphs">────────────────────────────────────────</text>
+<text x="131.6" y="293.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="140.0" y="293.7" fill="#c9d1d9" textLength="159.6" lengthAdjust="spacingAndGlyphs">#3 2026-11-18 09:23</text>
+<text x="131.6" y="312.7" fill="#b1b9f9" textLength="8.4" lengthAdjust="spacingAndGlyphs">│</text>
+<text x="140.0" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">내</text>
+<text x="156.8" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="182.0" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">할</text>
+<text x="207.2" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">일</text>
+<text x="224.0" y="312.7" fill="#c9d1d9" textLength="8.4" lengthAdjust="spacingAndGlyphs">:</text>
+<text x="240.8" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">배</text>
+<text x="257.6" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">포</text>
+<text x="282.8" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">스</text>
+<text x="299.6" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">크</text>
+<text x="316.4" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">립</text>
+<text x="333.2" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">트</text>
+<text x="358.4" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">점</text>
+<text x="375.2" y="312.7" fill="#c9d1d9" textLength="16.8" lengthAdjust="spacingAndGlyphs">검</text>
+</svg>
