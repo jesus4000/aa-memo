@@ -1,2 +1,2 @@
 # the command runs from its #! line: a CR there breaks it outside Windows
-plugins/** text eol=lf
+bin/** text eol=lf

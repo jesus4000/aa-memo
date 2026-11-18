@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// aa (Add Anything) as a plain command: the memo pad for Codex CLI and any shell.
-// It reads and writes the same file as the Claude Code mod, one JSON
-// memo per line in ~/.aa/memos.jsonl, so every tool shares one list.
+// aa (Add Anything) as a plain terminal command. It reads and writes the same
+// file as the Claude Code mod, one JSON memo per line in ~/.aa/memos.jsonl, so
+// both share one list.
 //
 //   aa <memo>          save
 //   aa ld [keyword]    load: pick one; Enter copies it, Del deletes it, Esc closes
-//   aa rm <id>         delete without the list (what an agent runs: it has no keys)
+//   aa rm <id>         delete without the list (for scripts: they have no keys)
 //   aa -               the same, with the text piped in instead of typed as arguments
 import { spawnSync } from 'node:child_process'
 import { appendFileSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, writeFileSync } from 'node:fs'
@@ -276,7 +276,7 @@ export const run = async (args, io) => {
       if (memo) said.push(copied(memo))
       return said.join('\n')
     }
-    // no terminal to pick in (an agent ran it): a single hit is shown whole and copied
+    // no terminal to pick in (a script ran it): a single hit is shown whole and copied
     return kw && rows.length === 1 ? `${show(rows[0])}\n${'-'.repeat(40)}\n${copied(rows[0])}` : listing(rows, kw)
   }
 
@@ -316,9 +316,7 @@ const fail = text => {
   process.exit(1)
 }
 
-// plain: never the keyboard list, whatever the terminal (an agent may run this
-// inside one, with nobody there to press a key)
-export const main = async ({ plain = false } = {}) => {
+export const main = async () => {
   const file = join(homedir(), '.aa', 'memos.jsonl')
   const words = process.argv.slice(2).join(' ')
   // `aa -`: the text comes piped in, untouched by the shell's quoting
@@ -334,7 +332,7 @@ export const main = async ({ plain = false } = {}) => {
   try {
     const said = await run(typed, {
       file,
-      isTTY: !plain && !piped && Boolean(process.stdin.isTTY && process.stdout.isTTY),
+      isTTY: !piped && Boolean(process.stdin.isTTY && process.stdout.isTTY),
       cwd: process.cwd(),
       copy,
       pick,
@@ -342,8 +340,7 @@ export const main = async ({ plain = false } = {}) => {
     if (said) console.log(said)
   } catch (error) {
     if (!['EPERM', 'EACCES', 'EROFS'].includes(error?.code)) throw error
-    // an agent's sandbox keeps writes inside its workspace
-    console.error(`aa: cannot write ${file} (${error.code}); in a sandboxed agent, allow writes to ${dirname(file)}`)
+    console.error(`aa: cannot write ${file} (${error.code}); allow writes to ${dirname(file)}`)
     process.exitCode = 1
   }
 }

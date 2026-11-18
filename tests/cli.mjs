@@ -1,4 +1,4 @@
-// The plain command (plugins/aa/skills/aa/scripts/aa.mjs): node --test tests/cli.mjs
+// The plain command (bin/aa.mjs): node --test tests/cli.mjs
 import assert from 'node:assert/strict'
 import { spawn, spawnSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
@@ -7,7 +7,7 @@ import { join } from 'node:path'
 import { test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
-import { cells, frame, keysOf, run, step } from '../plugins/aa/skills/aa/scripts/aa.mjs'
+import { cells, frame, keysOf, run, step } from '../bin/aa.mjs'
 
 // One temp file is the disk; `keys` are what the person types in the picker.
 const world = ({ isTTY = false, keys = [] } = {}) => {
@@ -148,26 +148,26 @@ test('a line that is no memo stays in the file through saves and deletes', async
   done()
 })
 
-test('the command itself: arguments, piped text, and the agent entry', () => {
+test('the command itself: arguments and piped text', () => {
   const home = mkdtempSync(join(tmpdir(), 'aa-home-'))
-  const script = name => fileURLToPath(new URL(`../plugins/aa/skills/aa/scripts/${name}`, import.meta.url))
-  const aa = (name, args, input) => {
-    const done = spawnSync(process.execPath, [script(name), ...args], {
+  const script = fileURLToPath(new URL('../bin/aa.mjs', import.meta.url))
+  const aa = (args, input) => {
+    const done = spawnSync(process.execPath, [script, ...args], {
       input,
       encoding: 'utf8',
       env: { ...process.env, HOME: home, USERPROFILE: home },
     })
     return done.stdout.trim()
   }
-  assert.match(aa('aa.mjs', ['buy', 'milk']), /^saved #1 {2}buy milk$/)
+  assert.match(aa(['buy', 'milk']), /^saved #1 {2}buy milk$/)
   // piped: quotes and several lines arrive as written, whatever the shell
-  assert.match(aa('agent.mjs', ['-'], `say "hi" & don't $HOME\nline two\n`), /^saved #2 /)
+  assert.match(aa(['-'], `say "hi" & don't $HOME\nline two\n`), /^saved #2 /)
   const saved = readFileSync(join(home, '.aa', 'memos.jsonl'), 'utf8').trim().split('\n').map(line => JSON.parse(line))
   assert.equal(saved[1].body, `say "hi" & don't $HOME\nline two`)
-  assert.match(aa('agent.mjs', ['ld']), /^#2 [\s\S]*#1 [\s\S]*copy one: aa ld <keyword>$/)
-  assert.equal(aa('agent.mjs', ['rm', '1']), 'deleted #1')
+  assert.match(aa(['ld']), /^#2 [\s\S]*#1 [\s\S]*copy one: aa ld <keyword>$/)
+  assert.equal(aa(['rm', '1']), 'deleted #1')
   // Windows line ends from a PowerShell pipe do not reach the memo
-  assert.match(aa('agent.mjs', ['-'], 'one\r\ntwo\r\n'), /^saved #3 /)
+  assert.match(aa(['-'], 'one\r\ntwo\r\n'), /^saved #3 /)
   const file = join(home, '.aa', 'memos.jsonl')
   assert.equal(JSON.parse(readFileSync(file, 'utf8').trim().split('\n').at(-1)).body, 'one\ntwo')
   rmSync(home, { recursive: true })
@@ -175,13 +175,13 @@ test('the command itself: arguments, piped text, and the agent entry', () => {
 
 test('nothing to delete or to save leaves the file as it was', async () => {
   const home = mkdtempSync(join(tmpdir(), 'aa-home-'))
-  const agent = fileURLToPath(new URL('../plugins/aa/skills/aa/scripts/agent.mjs', import.meta.url))
+  const script = fileURLToPath(new URL('../bin/aa.mjs', import.meta.url))
   const env = { ...process.env, HOME: home, USERPROFILE: home }
   const file = join(home, '.aa', 'memos.jsonl')
   mkdirSync(join(home, '.aa'))
   const before = JSON.stringify({ id: 1, body: 'kept', at: '2026-01-01 09:00' }) + '\nnot a memo'
   writeFileSync(file, before)
-  const aa = (args, input) => spawnSync(process.execPath, [agent, ...args], { input, encoding: 'utf8', env })
+  const aa = (args, input) => spawnSync(process.execPath, [script, ...args], { input, encoding: 'utf8', env })
 
   assert.equal(aa(['rm', '9']).stdout.trim(), 'no memo #9')
   for (const input of ['', '  \n']) {
@@ -190,7 +190,7 @@ test('nothing to delete or to save leaves the file as it was', async () => {
     assert.match(done.stderr, /nothing to save/)
   }
   // a pipe that stays open and silent is not waited on forever
-  const silent = spawn(process.execPath, [agent, '-'], { env, stdio: ['pipe', 'ignore', 'pipe'] })
+  const silent = spawn(process.execPath, [script, '-'], { env, stdio: ['pipe', 'ignore', 'pipe'] })
   let said = ''
   silent.stderr.on('data', chunk => (said += chunk))
   const code = await new Promise(resolve => silent.on('exit', resolve))

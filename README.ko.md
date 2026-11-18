@@ -2,13 +2,13 @@
 
 [English](README.md) · **한국어**
 
-AI 코딩 CLI 안에서 쓰는 메모장입니다. `/aa` 뒤에 적으면 어느 세션에서든 바로 저장되고, 다른 앱을 열 필요가 없습니다. 나중에 목록에서 고르면 클립보드에 복사되므로 원하는 곳에 붙여 넣으면 됩니다.
+Claude Code 안에서 쓰는 메모장입니다. `/aa` 뒤에 적으면 어느 세션에서든 바로 저장되고, 다른 앱을 열 필요가 없습니다. 나중에 목록에서 고르면 클립보드에 복사되므로 원하는 곳에 붙여 넣으면 됩니다.
 
-**Claude Code**, **Codex CLI**, 그리고 일반 **터미널 명령**으로 동작합니다. 모두 같은 메모 파일을 쓰기 때문에 한 곳에서 저장한 메모가 다른 곳에서도 보입니다.
+**Claude Code**와 일반 **터미널 명령**으로 동작합니다. 둘 다 같은 메모 파일을 쓰기 때문에 한 곳에서 저장한 메모가 다른 곳에서도 보입니다.
 
 ## 사용법
 
-할 일은 **저장**, **로드**, **삭제** 세 가지뿐입니다. 예시는 Claude Code 기준이며, [다른 CLI](#cli별-같은-세-가지)에서도 같은 방식입니다.
+할 일은 **저장**, **로드**, **삭제** 세 가지뿐입니다. 예시는 Claude Code 기준이며, [터미널 명령](#터미널에서)도 같은 방식입니다.
 
 ### 1. 저장 — `/aa <메모>`
 
@@ -43,20 +43,17 @@ AI 코딩 CLI 안에서 쓰는 메모장입니다. `/aa` 뒤에 적으면 어느
 
 ![삭제 전 확인과 삭제 후 목록](docs/claude-code-delete.svg)
 
-목록을 띄울 수 없는 곳(스크립트, 에이전트)에서는 `/aa rm <번호>`로 해당 번호의 메모를 지웁니다.
+목록을 열지 않고 지우려면 `/aa rm <번호>`로 해당 번호의 메모를 지웁니다.
 
-### CLI별 같은 세 가지
+### 터미널에서
 
-| | Claude Code | Codex CLI | 터미널 |
-| --- | --- | --- | --- |
-| 저장 | `/aa <메모>` | `$aa <메모>` | `aa <메모>` |
-| 로드 | `/aa ld [키워드]` | `$aa ld [키워드]` | `aa ld [키워드]` |
-| 삭제 | 목록에서 `d` | `$aa rm <번호>` | 목록에서 `Del` (또는 `d`) |
-| 실행 주체 | Claude Code 자체. 모델 호출 없음 | 모델이 skill로 실행 | 셸. 모델 없음 |
+| | Claude Code | 터미널 |
+| --- | --- | --- |
+| 저장 | `/aa <메모>` | `aa <메모>` |
+| 로드 | `/aa ld [키워드]` | `aa ld [키워드]` |
+| 삭제 | 목록에서 `d` | 목록에서 `Del` (또는 `d`) |
 
-Claude Code와 터미널에서는 목록을 키보드로 직접 다룹니다. Codex에서는 모델이 명령을 대신 실행하고 결과를 출력하므로, `ld`는 목록을 텍스트로 보여 주고(키워드에 딱 하나만 걸리면 그 메모 전체를 출력하고, 샌드박스가 허용하면 복사까지 합니다) 삭제는 번호로 합니다.
-
-일반 셸에서 쓰는 터미널 명령:
+둘 다 목록을 키보드로 직접 다루고, 모델을 호출하지 않습니다.
 
 ![셸에서 저장](docs/terminal-save.svg)
 
@@ -87,28 +84,6 @@ claude plugin install aa --marketplace ./aa-memo
 
 이 경우 Claude Code가 그 폴더를 직접 읽으므로 폴더를 옮기지 마세요. 업데이트를 pull한 뒤에는 `/reload-plugins`를 실행합니다.
 
-### Codex CLI
-
-```
-codex plugin marketplace add jesus4000/aa-memo
-codex plugin add aa@aa-memo
-```
-
-그다음 Codex에서 `$aa <메모>`를 입력합니다.
-
-Codex는 프로젝트 폴더 안에서만 쓸 수 있는 샌드박스에서 명령을 실행하는데, 메모 파일은 홈 폴더에 있습니다. 폴더를 한 번 만들고, `~/.codex/config.toml`에서 샌드박스가 그 폴더에 쓸 수 있게 해 주세요:
-
-```
-mkdir ~/.aa
-```
-
-```toml
-[sandbox_workspace_write]
-writable_roots = ["/home/you/.aa"]    # Windows: "C:\\Users\\you\\.aa"
-```
-
-이 설정이 없으면 저장할 때 `aa: cannot write ... in a sandboxed agent, allow writes to ...` 오류로 끝납니다.
-
 ### 터미널 명령
 
 Node.js 18 이상만 있으면 됩니다. 다른 의존성은 없습니다.
@@ -117,7 +92,7 @@ Node.js 18 이상만 있으면 됩니다. 다른 의존성은 없습니다.
 npm i -g github:jesus4000/aa-memo
 ```
 
-`aa` 명령이 생깁니다 (`aa`라는 이름이 이미 쓰이고 있을 때를 위해 같은 명령인 `aa-memo`도 함께 생깁니다). Codex로 작업하면서 키보드 목록을 쓰고 싶을 때도 이 방법을 씁니다: 옆 터미널에서 `aa ld`를 실행하세요.
+`aa` 명령이 생깁니다 (`aa`라는 이름이 이미 쓰이고 있을 때를 위해 같은 명령인 `aa-memo`도 함께 생깁니다).
 
 복사는 시스템 클립보드를 씁니다: Windows와 WSL은 PowerShell, macOS는 `pbcopy`, Linux는 `wl-copy`, `xclip`, `xsel` 중 있는 것. 아무것도 없으면 터미널 자체의 클립보드 시퀀스(OSC 52)로 보내는데, 터미널은 받았는지 알려 주지 않으므로 이때는 `Copy sent to the terminal`이라고 표시됩니다.
 
@@ -129,10 +104,9 @@ npm i -g github:jesus4000/aa-memo
 | --- | --- |
 | Claude Code 플러그인 | `claude plugin marketplace update aa-memo` 실행 후 `claude plugin update aa@aa-memo`, 그다음 Claude Code 재시작 |
 | Claude Code, 로컬 사본 | 그 폴더에서 `git pull` 후 `/reload-plugins` |
-| Codex CLI 플러그인 | `codex plugin marketplace upgrade aa-memo` 실행 후 `codex plugin add aa@aa-memo` 다시 실행 |
 | 터미널 명령 | `npm i -g github:jesus4000/aa-memo` 다시 실행 |
 
-Kiro CLI는 더 이상 지원하지 않습니다. 키보드 목록 없이 글자 목록만 출력할 수 있기 때문입니다. Kiro에 skill을 복사해 두었다면 `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`)로 지우세요.
+Codex CLI와 Kiro CLI는 더 이상 지원하지 않습니다. 모델이 명령을 대신 실행하므로 키보드 목록 없이 글자 목록만 출력할 수 있기 때문입니다. Codex 플러그인 제거: `codex plugin remove aa@aa-memo` 후 `codex plugin marketplace remove aa-memo`. Kiro skill 제거: `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`).
 
 0.1에서 올라오는 경우: `/aa load`는 `/aa ld`로 바뀌었고, `/aa 3`은 3번 메모를 불러오지 않고 "3"이라는 메모를 저장합니다. 메모는 `/aa ld` 목록에서 고르세요. 저장해 둔 메모는 그대로 읽힙니다.
 
@@ -142,16 +116,14 @@ Kiro CLI는 더 이상 지원하지 않습니다. 키보드 목록 없이 글자
 | --- | --- |
 | Claude Code | 됨: mod 테스트, 그리고 Windows의 실제 세션에서 직접 확인 (저장, 목록, 복사, 삭제, 취소). |
 | 터미널 명령 | 됨: 자체 테스트, 그리고 Windows의 실제 콘솔에서 직접 확인. macOS와 Linux의 클립보드 경로는 작성만 되어 있고 작성자가 실행해 보지는 않았습니다. |
-| Codex CLI | 일부: Windows에서 플러그인 설치와 `codex exec`를 통한 저장을 위 샌드박스 설정과 함께 확인. 대화형 화면에서는 아직 써 보지 않았습니다. |
 
 ## 메모가 저장되는 곳
 
-`~/.aa/memos.jsonl` (Windows는 `%USERPROFILE%\.aa\memos.jsonl`)에 한 줄에 JSON 하나씩 저장되며, 모든 CLI, 세션, 프로젝트가 함께 씁니다. 일반 텍스트 파일이므로 백업, 동기화, grep 모두 자유롭게 할 수 있습니다.
+`~/.aa/memos.jsonl` (Windows는 `%USERPROFILE%\.aa\memos.jsonl`)에 한 줄에 JSON 하나씩 저장되며, Claude Code와 터미널 명령이 모든 세션, 프로젝트에서 함께 씁니다. 일반 텍스트 파일이므로 백업, 동기화, grep 모두 자유롭게 할 수 있습니다.
 
 메모는 암호화되지 않습니다. 비밀번호나 키는 저장하지 마세요.
 
 - **Claude Code**: 저장과 로드는 모델을 호출하지 않습니다. 다만 입력한 `/aa ...` 줄은 다른 명령처럼 대화에 남기 때문에 같은 세션에서 다음 메시지를 보낼 때 모델이 읽을 수 있고, Claude Code의 로컬 기록에도 남을 수 있습니다.
-- **Codex**: 모델이 명령을 실행하므로 저장하는 메모와 출력되는 목록을 모델이 읽고, 쓸 때마다 한 턴이 소모됩니다.
 - **터미널 명령**: 모델이 전혀 관여하지 않습니다.
 
 ## 제한 사항

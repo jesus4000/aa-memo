@@ -2,13 +2,13 @@
 
 **English** · [한국어](README.ko.md)
 
-A memo pad inside your AI coding CLI. Type `/aa` and a note is saved at once, from any session, without opening another app. Later, pick it from a list and it lands on your clipboard, ready to paste wherever you want it.
+A memo pad inside Claude Code. Type `/aa` and a note is saved at once, from any session, without opening another app. Later, pick it from a list and it lands on your clipboard, ready to paste wherever you want it.
 
-Works in **Claude Code**, **Codex CLI** and as a plain **terminal command**. They all share one memo file, so a memo saved in one shows up in the others.
+Works in **Claude Code** and as a plain **terminal command**. Both share one memo file, so a memo saved in one shows up in the other.
 
 ## Usage
 
-There are three things to do: **save**, **load**, **delete**. The examples are from Claude Code; the [other CLIs](#the-same-three-in-every-cli) spell them the same way.
+There are three things to do: **save**, **load**, **delete**. The examples are from Claude Code; the [terminal command](#in-the-terminal) works the same way.
 
 ### 1. Save — `/aa <memo>`
 
@@ -43,20 +43,17 @@ Open the list (`/aa ld`), move to the memo and press `d`. It asks first; `y` del
 
 ![The question before deleting, and the list after it](docs/claude-code-delete.svg)
 
-Where no list can be shown (a script, an agent), `/aa rm <id>` deletes the memo with that number.
+To delete without opening the list, `/aa rm <id>` deletes the memo with that number.
 
-### The same three in every CLI
+### In the terminal
 
-| | Claude Code | Codex CLI | Terminal |
-| --- | --- | --- | --- |
-| Save | `/aa <memo>` | `$aa <memo>` | `aa <memo>` |
-| Load | `/aa ld [keyword]` | `$aa ld [keyword]` | `aa ld [keyword]` |
-| Delete | `d` in the list | `$aa rm <id>` | `Del` (or `d`) in the list |
-| Who runs it | Claude Code itself; no model call | the model, as a skill | your shell; no model |
+| | Claude Code | Terminal |
+| --- | --- | --- |
+| Save | `/aa <memo>` | `aa <memo>` |
+| Load | `/aa ld [keyword]` | `aa ld [keyword]` |
+| Delete | `d` in the list | `Del` (or `d`) in the list |
 
-In Claude Code and in the terminal the list is yours to drive with the keyboard. In Codex the model runs the command for you and prints the result, so `ld` prints the list as text (a keyword that matches exactly one memo prints it whole and, where the sandbox allows it, copies it), and deleting is by number.
-
-The terminal command, here in a plain shell:
+In both, the list is yours to drive with the keyboard, and nothing calls a model.
 
 ![Saving from a shell](docs/terminal-save.svg)
 
@@ -87,28 +84,6 @@ claude plugin install aa --marketplace ./aa-memo
 
 Claude Code then reads the mod straight from that folder, so keep the folder where it is; after pulling an update run `/reload-plugins`.
 
-### Codex CLI
-
-```
-codex plugin marketplace add jesus4000/aa-memo
-codex plugin add aa@aa-memo
-```
-
-Then type `$aa <memo>` in Codex.
-
-Codex runs commands in a sandbox that may only write inside the project folder, and the memo file is in your home folder. Create the folder once and let the sandbox write to it, in `~/.codex/config.toml`:
-
-```
-mkdir ~/.aa
-```
-
-```toml
-[sandbox_workspace_write]
-writable_roots = ["/home/you/.aa"]    # Windows: "C:\\Users\\you\\.aa"
-```
-
-Without this, saving ends with `aa: cannot write ... in a sandboxed agent, allow writes to ...`.
-
 ### Terminal command
 
 Needs Node.js 18 or later; nothing else is installed.
@@ -117,7 +92,7 @@ Needs Node.js 18 or later; nothing else is installed.
 npm i -g github:jesus4000/aa-memo
 ```
 
-This adds the command `aa` (and `aa-memo`, the same thing, in case `aa` is already taken on your machine). It is also the way to get the keyboard list while working in Codex: run `aa ld` in a terminal next to it.
+This adds the command `aa` (and `aa-memo`, the same thing, in case `aa` is already taken on your machine).
 
 Copying uses the system clipboard: PowerShell on Windows and WSL, `pbcopy` on macOS, `wl-copy`, `xclip` or `xsel` on Linux. When none of them is there, the memo is sent to the terminal's own clipboard sequence (OSC 52); a terminal never says whether it took it, so the line then reads `Copy sent to the terminal`.
 
@@ -129,10 +104,9 @@ Already installed? An update never touches your memos in `~/.aa/memos.jsonl`.
 | --- | --- |
 | Claude Code plugin | `claude plugin marketplace update aa-memo`, then `claude plugin update aa@aa-memo`, then restart Claude Code |
 | Claude Code, from a local copy | `git pull` in that folder, then `/reload-plugins` |
-| Codex CLI plugin | `codex plugin marketplace upgrade aa-memo`, then `codex plugin add aa@aa-memo` again |
 | Terminal command | `npm i -g github:jesus4000/aa-memo` again |
 
-Kiro CLI is no longer supported: it can only print the list as text, not the keyboard list. If you copied the skill there, remove it with `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`).
+Codex CLI and Kiro CLI are no longer supported: there the model runs the command and can only print the list as text, not the keyboard list. To remove the Codex plugin: `codex plugin remove aa@aa-memo`, then `codex plugin marketplace remove aa-memo`. To remove the Kiro skill: `rm -rf ~/.kiro/skills/aa` (PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`).
 
 Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" instead of loading memo 3. Pick a memo from the `/aa ld` list instead; your saved memos are read as before.
 
@@ -142,16 +116,14 @@ Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" inst
 | --- | --- |
 | Claude Code | Yes: the mod's tests, and by hand in a real session on Windows (save, list, copy, delete, cancel). |
 | Terminal command | Yes: its tests, and by hand in a real console on Windows. macOS and Linux clipboard paths are written but not run by the author. |
-| Codex CLI | Partly: installing the plugin and saving through `codex exec` on Windows, with the sandbox setting above. The interactive screen has not been tried. |
 
 ## Where memos live
 
-One JSON object per line in `~/.aa/memos.jsonl` (`%USERPROFILE%\.aa\memos.jsonl` on Windows), shared by every CLI, session and project. It is a plain text file: back it up, sync it or grep it as you like.
+One JSON object per line in `~/.aa/memos.jsonl` (`%USERPROFILE%\.aa\memos.jsonl` on Windows), shared by Claude Code and the terminal command, in every session and project. It is a plain text file: back it up, sync it or grep it as you like.
 
 Memos are stored unencrypted. Do not use aa for passwords or keys.
 
 - **Claude Code**: saving and loading never call the model. The `/aa ...` line you typed stays in the conversation like any other command, so the model can read it on your next message in that session, and it can remain in Claude Code's local history.
-- **Codex**: the model runs the command, so it reads the memo you save and the list it prints, and each use costs a turn.
 - **Terminal command**: no model is involved at all.
 
 ## Limits
