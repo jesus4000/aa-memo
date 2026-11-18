@@ -135,6 +135,30 @@ This adds the command `aa` (and `aa-memo`, the same thing, in case `aa` is alrea
 
 Copying uses the system clipboard: PowerShell on Windows and WSL, `pbcopy` on macOS, `wl-copy`, `xclip` or `xsel` on Linux. When none of them is there, the memo is sent to the terminal's own clipboard sequence (OSC 52); a terminal never says whether it took it, so the line then reads `Copy sent to the terminal`.
 
+## Update
+
+Already installed? An update never touches your memos in `~/.aa/memos.jsonl`.
+
+| Installed as | Update with |
+| --- | --- |
+| Claude Code plugin | `claude plugin marketplace update aa-memo`, then `claude plugin update aa@aa-memo`, then restart Claude Code |
+| Claude Code, from a local copy | `git pull` in that folder, then `/reload-plugins` |
+| Codex CLI plugin | `codex plugin marketplace upgrade aa-memo`, then `codex plugin add aa@aa-memo` again |
+| Kiro CLI skill | `git pull` in your copy, then replace the skill folder (below) |
+| Terminal command | `npm i -g github:jesus4000/aa-memo` again |
+
+Replacing the Kiro skill folder:
+
+```
+git -C aa-memo pull
+rm -rf ~/.kiro/skills/aa
+cp -r aa-memo/plugins/aa/skills/aa ~/.kiro/skills/aa
+```
+
+On Windows PowerShell: `Remove-Item -Recurse $HOME\.kiro\skills\aa`, then the `Copy-Item` line from the install step.
+
+Coming from 0.1: `/aa load` is now `/aa ld`, and `/aa 3` saves the memo "3" instead of loading memo 3. Pick a memo from the `/aa ld` list instead; your saved memos are read as before.
+
 ## What has been tested
 
 | | Tested |

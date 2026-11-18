@@ -135,6 +135,30 @@ npm i -g github:jesus4000/aa-memo
 
 복사는 시스템 클립보드를 씁니다: Windows와 WSL은 PowerShell, macOS는 `pbcopy`, Linux는 `wl-copy`, `xclip`, `xsel` 중 있는 것. 아무것도 없으면 터미널 자체의 클립보드 시퀀스(OSC 52)로 보내는데, 터미널은 받았는지 알려 주지 않으므로 이때는 `Copy sent to the terminal`이라고 표시됩니다.
 
+## 업데이트
+
+이미 설치했다면 아래 방법으로 올립니다. 업데이트는 `~/.aa/memos.jsonl`의 메모를 건드리지 않습니다.
+
+| 설치 방식 | 업데이트 방법 |
+| --- | --- |
+| Claude Code 플러그인 | `claude plugin marketplace update aa-memo` 실행 후 `claude plugin update aa@aa-memo`, 그다음 Claude Code 재시작 |
+| Claude Code, 로컬 사본 | 그 폴더에서 `git pull` 후 `/reload-plugins` |
+| Codex CLI 플러그인 | `codex plugin marketplace upgrade aa-memo` 실행 후 `codex plugin add aa@aa-memo` 다시 실행 |
+| Kiro CLI 스킬 | 사본에서 `git pull` 후 스킬 폴더 교체 (아래) |
+| 터미널 명령 | `npm i -g github:jesus4000/aa-memo` 다시 실행 |
+
+Kiro 스킬 폴더 교체:
+
+```
+git -C aa-memo pull
+rm -rf ~/.kiro/skills/aa
+cp -r aa-memo/plugins/aa/skills/aa ~/.kiro/skills/aa
+```
+
+Windows PowerShell에서는 `Remove-Item -Recurse $HOME\.kiro\skills\aa` 실행 후 설치 단계의 `Copy-Item` 줄을 다시 실행합니다.
+
+0.1에서 올라오는 경우: `/aa load`는 `/aa ld`로 바뀌었고, `/aa 3`은 3번 메모를 불러오지 않고 "3"이라는 메모를 저장합니다. 메모는 `/aa ld` 목록에서 고르세요. 저장해 둔 메모는 그대로 읽힙니다.
+
 ## 테스트된 범위
 
 | | 테스트 여부 |
